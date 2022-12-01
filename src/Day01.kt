@@ -1,10 +1,32 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
+        val totalCalories = mutableListOf<Int>()
+        var currentTotal = 0
+        input.forEach {
+            if (it.isBlank()) {
+                totalCalories.add(currentTotal)
+                currentTotal = 0
+            } else {
+                currentTotal += it.toInt()
+            }
+        }
+
+        return totalCalories.max()
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        val totalCalories = mutableListOf<Int>()
+        var currentTotal = 0
+        input.forEach {
+            if (it.isBlank()) {
+                totalCalories.add(currentTotal)
+                currentTotal = 0
+            } else {
+                currentTotal += it.toInt()
+            }
+        }
+
+        return totalCalories.sorted().takeLast(3).reduce { acc, i -> acc + i }
     }
 
     // test if implementation meets criteria from the description, like:
