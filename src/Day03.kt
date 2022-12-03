@@ -4,9 +4,8 @@ fun main() {
 
     fun part1(input: List<String>): Int {
         return input.sumOf { ruckSack ->
-            if (ruckSack.isEmpty()) return@sumOf 0
-            val compartments = ruckSack.chunked(ruckSack.length / 2).map(String::toSet)
-            val letter = ((compartments.first()) intersect compartments[1]).first()
+            val compartments = ruckSack.chunked(ruckSack.length / 2)
+            val letter = ((compartments.first().toSet()) intersect compartments[1].toSet()).first()
             letter.toPriority()
         }
     }
