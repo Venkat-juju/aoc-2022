@@ -1,3 +1,5 @@
+import kotlin.system.measureNanoTime
+
 data class SectionRange(
     val startSection : Int,
     val endSection: Int
@@ -33,6 +35,9 @@ fun main() {
     check(part2(testInput) == 4)
 
     val input = readInput("Day04")
-    println(part1(input))
-    println(part2(input))
+    val timeTaken = measureNanoTime {
+        println(part1(input))
+        println(part2(input))
+    }
+    println("Time taken: $timeTaken ns")
 }
