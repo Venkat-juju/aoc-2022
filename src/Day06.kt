@@ -28,7 +28,7 @@ fun main() {
         var set = inputStr.substring(start..end).toSet()
         while(set.size != 14) {
             if (end > inputStr.length-1)
-                error("Invalid Input for part2")
+                error("Invalid Input")
             start++
             end++
             set = inputStr.substring(start..end).toSet()
@@ -40,7 +40,7 @@ fun main() {
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day06_test")
     check(part1(testInput) == 11)
-    check(part2(testInput) == 26)
+    check(part1(testInput) == 26)
 
     val input = readInput("Day06")
     val timeTaken = measureNanoTime {
