@@ -1,24 +1,23 @@
 import kotlin.system.measureNanoTime
 
+//1109
+//3965
 fun main() {
 
     fun part1(input: List<String>): Int {
         val inputStr = input[0]
         var start = 0
         var end = 3
-        var isMarkerFound = false
-        while(!isMarkerFound) {
-            val set = inputStr.substring(start..end).toSet()
-            if (set.size == 4) {
-                isMarkerFound = true
-                return end + 1
-            } else {
-                start++
-                end++
-            }
+        var set = inputStr.substring(start..end).toSet()
+        while(set.size != 4) {
+            if (end > inputStr.length-1)
+                error("Invalid Input")
+            start++
+            end++
+            set = inputStr.substring(start..end).toSet()
         }
 
-        error("Invalid input")
+        return end+1
     }
 
     fun part2(input: List<String>): Int {
@@ -26,19 +25,16 @@ fun main() {
         val inputStr = input[0]
         var start = 0
         var end = 13
-        var isMarkerFound = false
-        while(!isMarkerFound) {
-            val set = inputStr.substring(start..end).toSet()
-            if (set.size == 14) {
-                isMarkerFound = true
-                return end + 1
-            } else {
-                start++
-                end++
-            }
+        var set = inputStr.substring(start..end).toSet()
+        while(set.size != 14) {
+            if (end > inputStr.length-1)
+                error("Invalid Input for part2")
+            start++
+            end++
+            set = inputStr.substring(start..end).toSet()
         }
 
-        error("Invalid input")
+        return end+1
     }
 
     // test if implementation meets criteria from the description, like:
