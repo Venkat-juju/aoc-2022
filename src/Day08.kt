@@ -1,5 +1,7 @@
 import kotlin.math.max
 
+//1825
+//235200
 fun main() {
 
     fun isVisible(treeIndex: Int, treeLine: List<Int>): Boolean {
@@ -8,11 +10,11 @@ fun main() {
     }
 
     fun lineScenicScore(treeIndex: Int, treeLine: List<Int>): Int {
-        val leftTrees = treeLine.slice(0 until treeIndex)
+        val leftTrees = treeLine.slice(treeIndex - 1 downTo 0)
         val rightTrees = treeLine.slice(treeIndex + 1 .. treeLine.lastIndex)
         val treeHeight = treeLine[treeIndex]
 
-        var leftVisibleTrees = leftTrees.reversed().indexOfFirst { it >= treeHeight } + 1
+        var leftVisibleTrees = leftTrees.indexOfFirst { it >= treeHeight } + 1
         var rightVisibleTrees = rightTrees.indexOfFirst { it >= treeHeight } + 1
 
         if (leftVisibleTrees == 0) leftVisibleTrees = leftTrees.size
@@ -57,6 +59,7 @@ fun main() {
 
         return maxScenicScore
     }
+
 
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day08_test")
